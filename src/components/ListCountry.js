@@ -4,8 +4,6 @@ import Country from './Country';
 
 const ListCountry = ({ countryList }) => {
 
-    console.log('countryList: ', countryList)
-
     return (
         <Grid container spacing={3}>
             {

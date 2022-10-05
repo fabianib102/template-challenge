@@ -1,11 +1,15 @@
 import './App.css';
 import Dashboard from './components/Dashboard';
+import { CountryProvider } from './providers/CountryProvider';
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <Dashboard />
-    </div>
+    <CountryProvider>
+      <div className="App">
+        <Dashboard />
+      </div>
+    </CountryProvider>
   );
 }
 

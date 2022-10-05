@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from "react"
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
@@ -8,7 +9,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Toolbar from '@mui/material/Toolbar';
 import SideBar from './SideBar';
-import { drawerWidth } from '../utils/constants'
+import { drawerWidth } from '../utils/constants';
+import useDataCountry from '../hooks/useDataCountry';
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
@@ -30,10 +32,17 @@ const AppBar = styled(MuiAppBar, {
 
 const Navbar = () => {
 
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = useState(true);
+    const [countryCount, setCountryCount] = useState(0)
+    const { listCountrySelected } = useDataCountry();
+
     const toggleDrawer = () => {
         setOpen(!open);
     };
+
+    useEffect(()=>{
+      setCountryCount(listCountrySelected.length)
+    }, [listCountrySelected])
 
     return (
         <React.Fragment>
@@ -44,30 +53,30 @@ const Navbar = () => {
                     }}
                 >
                     <IconButton
-                    edge="start"
-                    color="inherit"
-                    aria-label="open drawer"
-                    onClick={toggleDrawer}
-                    sx={{
-                        marginRight: '36px',
-                        ...(open && { display: 'none' }),
-                    }}
+                      edge="start"
+                      color="inherit"
+                      aria-label="open drawer"
+                      onClick={toggleDrawer}
+                      sx={{
+                          marginRight: '36px',
+                          ...(open && { display: 'none' }),
+                      }}
                     >
-                    <MenuIcon />
+                      <MenuIcon />
                     </IconButton>
                     <Typography
-                    component="h1"
-                    variant="h6"
-                    color="inherit"
-                    noWrap
-                    sx={{ flexGrow: 1 }}
+                      component="h1"
+                      variant="h6"
+                      color="inherit"
+                      noWrap
+                      sx={{ flexGrow: 1 }}
                     >
-                    Dashboard
+                      Dashboard
                     </Typography>
                     <IconButton color="inherit">
-                    <Badge badgeContent={4} color="secondary">
-                        <NotificationsIcon />
-                    </Badge>
+                      <Badge badgeContent={countryCount} color="secondary">
+                          <NotificationsIcon />
+                      </Badge>
                     </IconButton>
                 </Toolbar>
             </AppBar>
