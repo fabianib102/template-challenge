@@ -9,7 +9,7 @@ const ListCountry = ({ countryList }) => {
             {
                 countryList.length > 0 ? 
                     countryList.map((item,index)=> (
-                        <Grid item xs={12} sm={6} md={3} key={index}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} key={index}>
                             <Country countryData={item}/>
                         </Grid>
                     ))

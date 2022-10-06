@@ -13,7 +13,7 @@ import useDataCountry from '../hooks/useDataCountry';
 
 const CardParent = styled(Card)(({ selected }) => ({
     backgroundColor: selected ? '#f2f2f2' : 'white',
-    maxWidth: 345
+    // maxWidth: 345
 }));
 
 const Country = ({ countryData }) => {
