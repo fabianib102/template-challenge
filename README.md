@@ -41,8 +41,8 @@ $ npm run start
 # watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
+# consideraciones
+Es necesario tener un archivo .env para ejecutarlo correctamente que se lo envía por email, otra cuestión puede ser que mongo Atlas tenga bloqueado el IP address por lo que será necesario agregarlo en la consola de Atlas (debido a que es una BD remota)
 ```
 
 ## Test
@@ -58,16 +58,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Este repo es un challenge para conexa
 
-## License
-
-Nest is [MIT licensed](LICENSE).
